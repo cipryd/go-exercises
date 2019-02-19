@@ -62,16 +62,11 @@ func (u Universe) Alive(x, y int) bool {
 		y += width
 	}
 
-	if x > height {
+	if x >= height {
 		x = x % height
 	}
-	if y > width {
+	if y >= width {
 		y = y % width
-	}
-
-	if x < 0 || x > height || y < 0 || y > width {
-		fmt.Printf("x %v; y %v\n", x, y)
-		return false
 	}
 
 	return u[x][y]
@@ -139,7 +134,7 @@ func RunSimulation(n int) {
 	for i := 0; i < n; i++ {
 		Step(a, b)
 		a.Show()
-		time.Sleep(1 * time.Second)
+		time.Sleep(100 * time.Millisecond)
 		ClearScreen()
 		a, b = b, a
 	}

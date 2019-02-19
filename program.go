@@ -1,5 +1,5 @@
 package main
 
 func main() {
-	RunSimulation(10)
+	RunSimulation(1000)
 }
